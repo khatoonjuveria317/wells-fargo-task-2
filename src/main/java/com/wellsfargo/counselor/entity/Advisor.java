@@ -1,86 +1,126 @@
 package com.wellsfargo.counselor.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
-public class Advisor {
+public class Security {
 
     @Id
     @GeneratedValue()
-    private long advisorId;
+    private long securityId;
 
     @Column(nullable = false)
-    private String firstName;
+    private Long portfolioId;
 
     @Column(nullable = false)
-    private String lastName;
+    private String name;
 
     @Column(nullable = false)
-    private String address;
+    private String category;
 
     @Column(nullable = false)
-    private String phone;
+    private LocalDate purchaseDate;
 
     @Column(nullable = false)
-    private String email;
+    private BigDecimal purchasePrice;
 
-    protected Advisor() {
+    @Column(nullable = false)
+    private int quantity;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
+
+    protected Security() {
 
     }
 
-    public Advisor(String firstName, String lastName, String address, String phone, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
+    public Security(Long portfolioId, String name, String category, LocalDate purchaseDate,
+                     BigDecimal purchasePrice, int quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.portfolioId = portfolioId;
+        this.name = name;
+        this.category = category;
+        this.purchaseDate = purchaseDate;
+        this.purchasePrice = purchasePrice;
+        this.quantity = quantity;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public Long getAdvisorId() {
-        return advisorId;
+    public Long getSecurityId() {
+        return securityId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Long getPortfolioId() {
+        return portfolioId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setPortfolioId(Long portfolioId) {
+        this.portfolioId = portfolioId;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCategory() {
+        return category;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getPhone() {
-        return phone;
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
-    public String getEmail() {
-        return email;
+    public BigDecimal getPurchasePrice() {
+        return purchasePrice;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPurchasePrice(BigDecimal purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
