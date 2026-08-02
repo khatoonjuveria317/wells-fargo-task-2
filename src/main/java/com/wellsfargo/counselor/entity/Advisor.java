@@ -5,34 +5,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-public class Security {
+public class Advisor {
 
     @Id
     @GeneratedValue()
-    private long securityId;
+    private long advisorId;
 
     @Column(nullable = false)
-    private Long portfolioId;
+    private String firstName;
 
     @Column(nullable = false)
-    private String name;
+    private String lastName;
 
     @Column(nullable = false)
-    private String category;
+    private String email;
 
     @Column(nullable = false)
-    private LocalDate purchaseDate;
-
-    @Column(nullable = false)
-    private BigDecimal purchasePrice;
-
-    @Column(nullable = false)
-    private int quantity;
+    private String phone;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -40,72 +32,54 @@ public class Security {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    protected Security() {
+    protected Advisor() {
 
     }
 
-    public Security(Long portfolioId, String name, String category, LocalDate purchaseDate,
-                     BigDecimal purchasePrice, int quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.portfolioId = portfolioId;
-        this.name = name;
-        this.category = category;
-        this.purchaseDate = purchaseDate;
-        this.purchasePrice = purchasePrice;
-        this.quantity = quantity;
+    public Advisor(String firstName, String lastName, String email, String phone,
+                    LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Long getSecurityId() {
-        return securityId;
+    public Long getAdvisorId() {
+        return advisorId;
     }
 
-    public Long getPortfolioId() {
-        return portfolioId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPortfolioId(Long portfolioId) {
-        this.portfolioId = portfolioId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public LocalDate getPurchaseDate() {
-        return purchaseDate;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPurchaseDate(LocalDate purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public BigDecimal getPurchasePrice() {
-        return purchasePrice;
-    }
-
-    public void setPurchasePrice(BigDecimal purchasePrice) {
-        this.purchasePrice = purchasePrice;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public LocalDateTime getCreatedAt() {
